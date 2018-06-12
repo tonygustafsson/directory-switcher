@@ -25,6 +25,18 @@ You should not include the path to the working space.
 }
 ```
 
+## Add keyboard shortcut
+
+Go to File > Preferences > Keyboard shortcuts and add the following:
+
+```
+{
+    "key": "ctrl+1",
+    "command": "directorySwitcher.openCorrespondingFile",
+    "when": "editorTextFocus && !editorReadonly"
+}
+```
+
 ## Build
 
 ```

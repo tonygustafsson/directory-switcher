@@ -2,6 +2,10 @@
 
 All notable changes to the "directory-switcher" extension will be documented in this file.
 
-## 2018-06-12
+## 0.2.1
+
+-   Describe how to create keyboard shortcut
+
+## 0.2.0
 
 -   Initial release
