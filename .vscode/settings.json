@@ -1,0 +1,5 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "directorySwitcher.baseDirectory": "cartridges\\app_storefront_base",
+    "directorySwitcher.correspondingDirectory": "cartridges\\app_plantagen"
+}

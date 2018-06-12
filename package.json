@@ -1,0 +1,57 @@
+{
+    "name": "directory-switcher",
+    "displayName": "Directory Switcher",
+    "description": "Switch between current file and a corrisponding file in another directory. Create it if it does not exist.",
+    "version": "0.2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tonygustafsson/directory-switcher.git"
+    },
+    "publisher": "tonygustafsson",
+    "engines": {
+        "vscode": "^1.1.0"
+    },
+    "icon": "directory-switcher.png",
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:directorySwitcher.openCorrespondingFile"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "directorySwitcher.openCorrespondingFile",
+                "title": "DirectorySwitcher: Open Corresponding File"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Directory Switcher settings",
+            "properties": {
+                "directorySwitcher.baseDirectory": {
+                    "type": "string",
+                    "default": "relativePath\\subpath",
+                    "description": "The main directory containing all files"
+                },
+                "directorySwitcher.correspondingDirectory": {
+                    "type": "string",
+                    "default": "relativePath\\subpath2",
+                    "description": "The comparison directory to baseDirectory"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
