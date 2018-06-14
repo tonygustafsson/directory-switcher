@@ -5,14 +5,10 @@ const vscode = require('vscode'),
 function activate(context) {
     let openCorrespondingFile = vscode.commands.registerCommand('directorySwitcher.openCorrespondingFile', function() {
         let config = vscode.workspace.getConfiguration('directorySwitcher'),
-            baseDirectory = (vscode.workspace.rootPath + '\\' + config['baseDirectory']).toLowerCase(),
-            correspondingDirectory = (
-                vscode.workspace.rootPath +
-                '\\' +
-                config['correspondingDirectory']
-            ).toLowerCase(),
+            baseDirectory = vscode.workspace.rootPath + '\\' + config['baseDirectory'],
+            correspondingDirectory = vscode.workspace.rootPath + '\\' + config['correspondingDirectory'],
             currentFile = vscode.window.activeTextEditor.document.fileName,
-            currentFilePath = path.dirname(currentFile).toLowerCase();
+            currentFilePath = path.dirname(currentFile);
 
         if (!currentFilePath.includes(baseDirectory) && !currentFilePath.includes(correspondingDirectory)) {
             vscode.window.showInformationMessage(
@@ -24,8 +20,8 @@ function activate(context) {
 
         // Calculate the corresponding file path to open or create
         let correspondingFile = currentFilePath.includes(baseDirectory)
-                ? currentFile.toLowerCase().replace(baseDirectory, correspondingDirectory)
-                : currentFile.toLowerCase().replace(correspondingDirectory, baseDirectory),
+                ? currentFile.replace(baseDirectory, correspondingDirectory)
+                : currentFile.replace(correspondingDirectory, baseDirectory),
             correspondingPath = path.dirname(correspondingFile);
 
         if (fs.existsSync(correspondingFile)) {
