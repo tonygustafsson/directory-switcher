@@ -2,7 +2,7 @@
     "name": "directory-switcher",
     "displayName": "Directory Switcher",
     "description": "VSCode extension for switching between current file and a corrisponding file in another directory. Create it if it does not exist.",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "repository": {
         "type": "git",
         "url": "https://github.com/tonygustafsson/directory-switcher.git"
