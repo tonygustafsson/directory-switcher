@@ -1,6 +1,7 @@
 const vscode = require('vscode'),
     path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    mkdirp = require('mkdirp');
 
 function activate(context) {
     let openCorrespondingFile = vscode.commands.registerCommand('directorySwitcher.openCorrespondingFile', function() {
@@ -42,18 +43,16 @@ function activate(context) {
                 .then(answer => {
                     if (typeof answer === 'undefined') return; // User choose ESC
 
-                    if (!fs.existsSync(correspondingPath)) {
-                        // Create directory if it does not already exists
-                        fs.mkdir(correspondingPath);
-                    }
+                    // Create directory first
+                    mkdirp(correspondingPath, () => {
+                        // Copy the file
+                        fs.createReadStream(currentFile).pipe(fs.createWriteStream(correspondingFile));
 
-                    // Copy the file
-                    fs.createReadStream(currentFile).pipe(fs.createWriteStream(correspondingFile));
-
-                    // Open the file
-                    vscode.workspace.openTextDocument(correspondingFile).then(doc => {
-                        vscode.window.showTextDocument(doc, {
-                            preview: false
+                        // Open the file
+                        vscode.workspace.openTextDocument(correspondingFile).then(doc => {
+                            vscode.window.showTextDocument(doc, {
+                                preview: false
+                            });
                         });
                     });
                 });

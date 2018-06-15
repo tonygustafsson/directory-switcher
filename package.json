@@ -53,5 +53,10 @@
         "eslint": "^4.11.0",
         "@types/node": "^7.0.43",
         "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "fs": "0.0.1-security",
+        "mkdirp": "^0.5.1",
+        "path": "^0.12.7"
     }
 }
