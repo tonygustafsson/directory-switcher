@@ -9,7 +9,7 @@ simply by adding a file with the same name in the same path in your plugin / car
 
 ## Usage
 
-CTRL+ALT+P and type "DirectorySwitcher: Open Corresponding File".
+Press F1 and type "DirectorySwitcher: Open Corresponding File".
 
 This will open the same file in the corresponding path defined in settings.
 If the file does not exist, it will give you the posibility to create it.
@@ -20,8 +20,8 @@ You should not include the path to the working space.
 
 ```
 {
-    "directorySwitcher.baseDirectory": "relativePath\\subPath",
-    "directorySwitcher.correspondingDirectory": "relativePath\\subPath2"
+    "directorySwitcher.baseDirectory": "relativePath/subPath",
+    "directorySwitcher.correspondingDirectory": "relativePath/subPath2"
 }
 ```
 
@@ -40,7 +40,10 @@ Go to File > Preferences > Keyboard shortcuts and add the following:
 ## Build
 
 ```
-$ npm install
-$ npm install -g vsce
-$ vsce package
+git clone https://github.com/tonygustafsson/directory-switcher.git
+npm install
+npm install -g vsce
+vsce package
 ```
+
+A new file will be created that you can install named directoy-switcher-VERSION.vsix
