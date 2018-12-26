@@ -6,8 +6,8 @@ const vscode = require('vscode'),
 function activate(context) {
     let openCorrespondingFile = vscode.commands.registerCommand('directorySwitcher.openCorrespondingFile', function() {
         let config = vscode.workspace.getConfiguration('directorySwitcher'),
-            baseDirectory = vscode.workspace.rootPath + '\\' + config['baseDirectory'],
-            correspondingDirectory = vscode.workspace.rootPath + '\\' + config['correspondingDirectory'],
+            baseDirectory = path.resolve(vscode.workspace.rootPath, config['baseDirectory']),
+            correspondingDirectory = path.resolve(vscode.workspace.rootPath, config['correspondingDirectory']),
             currentFile = vscode.window.activeTextEditor.document.fileName,
             currentFilePath = path.dirname(currentFile);
 
