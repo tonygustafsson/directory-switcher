@@ -16,7 +16,9 @@ If the file does not exist, it will give you the posibility to create it.
 
 ## Settings example
 
-You should not include the path to the working space.
+You should not include the path to the working directory. Use relative paths.
+The recommendation is to add these settings to ./.vscode/settings.json in the
+project you are working on, so that you can have different paths for different projects.
 
 ```
 {
