@@ -2,6 +2,10 @@
 
 All notable changes to the "directory-switcher" extension will be documented in this file.
 
+## 0.2.5
+
+-   Update all dependencies.
+
 ## 0.2.4
 
 -   Fix path problem so it works well on both Linux and Windows (probably Mac as well :P)
